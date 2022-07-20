@@ -1,0 +1,20 @@
+using UnityEngine;
+using UnityEditor;
+
+[CustomEditor(typeof(SCR_MapGenerator))]
+public class SCR_CustomEditor : Editor
+{
+    /// <summary>
+    /// Method to add a button to the inspector to call the GenerateMesh method
+    /// </summary>
+    public override void OnInspectorGUI()
+    {
+        SCR_MapGenerator mapGen = (SCR_MapGenerator)target;
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("Generate Mesh"))
+        {
+            mapGen.GenerateMeshEditor();
+        }
+    }
+}
